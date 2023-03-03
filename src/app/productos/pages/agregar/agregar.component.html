@@ -9,8 +9,10 @@
             <input type="text" formControlName="nombre" class="form-control">
         </div>
         <div *ngIf="tieneError('nombre')"
-             class="col-auto form-text">
-            <span>Este Campo es Requerido</span>
+             class="col-auto">
+            <span class="form-text"
+                  error-msg>
+                Este Campo es Requerido</span>
         </div>
     </div>
 
