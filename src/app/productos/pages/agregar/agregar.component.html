@@ -10,11 +10,11 @@
         <div class="col-auto">
             <input type="text" formControlName="nombre" class="form-control">
         </div>
-        <div *ngIf="tieneError('nombre')"
-             class="col-auto">
+        <div class="col-auto">
             <span   error-msg
-                    [msg]="textDirective"  
-                    [color]="color"
+                    [msg] = "textDirective"  
+                    [color] = "color"
+                    [isValid] = "!tieneError('nombre')"
                     ></span>
         </div>
     </div>
