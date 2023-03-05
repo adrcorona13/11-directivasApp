@@ -14,7 +14,8 @@
              class="col-auto">
             <span   error-msg
                     [msg]="textDirective"  
-                    [color]="color"></span>
+                    [color]="color"
+                    ></span>
         </div>
     </div>
 
@@ -22,9 +23,12 @@
         <div class="col">
             <button class="btn btn-primary" (click)="guardar()">Guardar</button>
         </div>
+        <div class="col">
+            <button class="btn btn-primary" (click)="cambiarColor()">Cambiar Color</button>
+        </div>
     </div>
 </form>
 
-<h3 class="mt-5" error-msg color="darkgreen">Formulario</h3>
+<h3 class="mt-5">Formulario</h3>
 <pre>Value: {{ form.value | json }} </pre>
 <pre>Valid: {{ form.valid }} </pre>

@@ -6,39 +6,50 @@ import { Directive, ElementRef, Input, OnChanges, OnInit, SimpleChanges } from '
 export class ErrorMsgDirective implements OnInit, OnChanges {
 
   htmlElement: ElementRef<HTMLElement>;
-  @Input() color: string = 'red';
-  @Input() msg: string = 'default text';
+  // @Input() color: string = 'red';
+  // @Input() msg: string = 'default text';
+
+
+  private _color: string = 'red';
+  private _msg: string = 'Campo requerido';
+
+  @Input() set color(valor: string) {
+    this._color = valor;
+    this.htmlElement.nativeElement.style.color = this._color;
+  }
+
+  @Input() set msg(valor: string) {
+    this._msg = valor;
+    this.htmlElement.nativeElement.innerHTML = this._msg;
+  }
 
   constructor(private el: ElementRef<HTMLElement>) {
-    console.log('contructor directive');
-    console.log(el);
     this.htmlElement = el;
+    console.log(this.msg);
+
   }
+  
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
-    const mensaje = changes['msg']?.currentValue;
-    const txt = document.createTextNode(mensaje);
-    this.htmlElement.nativeElement.appendChild(txt);
+    // console.log(changes);
+
+    // if (changes['msg']) {
+    //   const mensaje = changes['msg'].currentValue;  
+    //   this.htmlElement.nativeElement.innerHTML = mensaje;  
+    // }
+
+    // if (changes['color']) {
+    //   const color = changes['color'].currentValue;  
+    //   this.htmlElement.nativeElement.style.color = color;  
+    // }
+
   }
 
   ngOnInit(): void {
-    console.log('onInit directive');
-    this.setColor();
     this.setClass();
-    this.setMessage();
-  }
-
-  setColor(): void {
-    this.htmlElement.nativeElement.style.color = this.color;
   }
 
   setClass(): void {
     this.htmlElement.nativeElement.classList.add('form-text');
-  }
-
-  setMessage(): void {
-    const txt = document.createTextNode(this.msg)
-    this.htmlElement.nativeElement.appendChild(txt);
   }
 
 }
