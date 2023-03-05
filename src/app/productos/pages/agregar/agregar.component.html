@@ -32,3 +32,14 @@
 <h3 class="mt-5">Formulario</h3>
 <pre>Value: {{ form.value | json }} </pre>
 <pre>Valid: {{ form.valid }} </pre>
+
+<hr>
+
+<div class="row" 
+    *custom-if="form.valid">
+    <div class="col">
+        <div class="alert alert-primary">
+            Todo OK!
+        </div>
+    </div>
+</div>
