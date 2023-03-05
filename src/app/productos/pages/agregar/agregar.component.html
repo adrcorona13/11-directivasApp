@@ -1,5 +1,7 @@
 <h1 class="mt-5">Agregar Producto</h1>
 <hr>
+{{textDirective}}
+<hr>
 <form [formGroup]="form">
     <div class="row g-3 align-items-center mb-3">
         <div class="col-auto">
@@ -10,15 +12,15 @@
         </div>
         <div *ngIf="tieneError('nombre')"
              class="col-auto">
-            <span error-msg
-                  [color]="color">
-                Este Campo es Requerido</span>
+            <span   error-msg
+                    [msg]="textDirective"  
+                    [color]="color"></span>
         </div>
     </div>
 
     <div class="row mt-3">
         <div class="col">
-            <button class="btn btn-primary">Guardar</button>
+            <button class="btn btn-primary" (click)="guardar()">Guardar</button>
         </div>
     </div>
 </form>

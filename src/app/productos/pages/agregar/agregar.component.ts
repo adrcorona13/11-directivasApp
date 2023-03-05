@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AgregarComponent {
 
   color: string = 'purple'
+  textDirective: string = 'Custom text'
 
   form: FormGroup = this.fb.group({
     nombre: ['',[Validators.required],[]]
@@ -18,5 +19,9 @@ export class AgregarComponent {
 
   tieneError(campo: string): boolean{
     return this.form.get(campo)?.invalid || false;
+  }
+
+  guardar(){
+    this.textDirective = 'editado'
   }
 }
