@@ -8,7 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AgregarComponent {
 
-  color: string = 'red'
+  color: string = 'purple'
 
   form: FormGroup = this.fb.group({
     nombre: ['',[Validators.required],[]]

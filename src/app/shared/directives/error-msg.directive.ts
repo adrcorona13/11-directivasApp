@@ -17,10 +17,15 @@ export class ErrorMsgDirective implements OnInit {
   ngOnInit(): void {
     console.log('onInit directive');
     this.setColor();
+    this.setClass();
   }
 
   setColor():void{
     this.htmlElement.nativeElement.style.color = this.color;
+  }
+
+  setClass():void{
+    this.htmlElement.nativeElement.classList.add('form-text');
   }
 
 }
